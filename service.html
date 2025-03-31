@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Mr Khan Technology</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #00BCD4; /* Teal accent color */
+      --secondary-color: #2c3e50; /* Dark blue */
+      --accent-color: #3498db; /* Light blue */
+      --text-color: #333;
+      --light-text: #fff;
+      --light-bg: #f8f9fa;
+      --dark-bg: #121212;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease-in-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-bg);
+      padding-top: 120px; /* Space for fixed header */
+    }
+
+    /* Header Styles */
+    header {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: var(--dark-bg);
+      box-shadow: 0 4px 8px rgba(0, 188, 212, 0.2);
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 5%;
+      height: 60px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--primary-color);
+      object-fit: contain;
+    }
+
+    .project-name {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--light-text);
+      white-space: nowrap;
+    }
+
+    /* Navigation */
+    nav {
+      width: 100%;
+      background: rgba(18, 18, 18, 0.95);
+      border-top: 1px solid rgba(0, 188, 212, 0.3);
+    }
+
+    .nav-links {
+      display: flex;
+      padding: 10px 5%;
+      margin: 0;
+      list-style: none;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
+
+    .nav-links li {
+      flex-shrink: 0;
+      margin-right: 12px;
+    }
+
+    .nav-links a {
+      color: var(--light-text);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      display: block;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      background: var(--primary-color);
+      color: var(--light-text);
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Hero Section */
+    .services-intro {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: var(--light-text);
+      border-radius: var(--border-radius);
+      margin-bottom: 40px;
+    }
+
+    .services-intro h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .services-intro p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Services Grid */
+    .service-categories {  
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    
+    .service-category {
+      background: var(--light-text);
+      padding: 30px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .service-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-category img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+      object-fit: contain;
+    }
+
+    .service-category h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--secondary-color);
+    }
+
+    .service-category p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .learn-more {
+      display: inline-block;
+      padding: 10px 25px;
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .learn-more:hover {
+      background-color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    /* Case Studies */
+    .case-studies {
+      padding: 60px 0;
+      background-color: var(--light-text);
+      margin-bottom: 40px;
+      border-radius: var(--border-radius);
+    }
+
+    .case-studies h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--secondary-color);
+    }
+
+    .case-studies-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    .case-study {
+      background: var(--light-bg);
+      padding: 25px;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+    }
+
+    .case-study:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow);
+    }
+
+    .case-study h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--secondary-color);
+    }
+
+    .case-study p {
+      margin-bottom: 15px;
+    }
+
+    .case-study a {
+      color: var(--primary-color);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .case-study a::after {
+      content: '→';
+      margin-left: 5px;
+      transition: var(--transition);
+    }
+
+    .case-study a:hover::after {
+      transform: translateX(3px);
+    }
+
+    /* CTA Section */
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 5px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #2c3e50;
+  color: #fff;
+}</style>
+</head>
+<body>
+<header>
+  <div class="logo-container">
+    <img src="logo.png" alt="MR KHAN TECHNOLOGY Logo" class="logo" loading="lazy">
+    <h1 class="project-name">MR KHAN TECHNOLOGY</h1>
+  </div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="service.html">Services</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="careers.html">Career</a></li>
+      <li><a href="marketplace.html">Market Place</a></li>
+      <li><a href="forum.html">Community Forum</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <section class="services-intro">
+      <h1>Our Services</h1>
+      <p>At Mr Khan Technology, we offer a wide range of tech solutions to help your business thrive in the digital age.</p>
+    </section>
+
+    <section class="service-categories">
+      <div class="service-category">
+        <img src="photo/networking.png" alt="Software Development">
+        <h2>Software Development</h2>
+        <p>We build custom software solutions tailored to your business needs, from web applications to mobile apps.</p>
+        <a href="software-dev.html" class="learn-more">Learn More</a>
+      </div>
+      <div class="service-category">
+        <img src="photo/repair.png" alt="AI Solutions">
+        <h2>AI Solutions</h2>
+        <p>Leverage the power of artificial intelligence to automate processes and gain valuable insights.</p>
+        <a href="ai-solutions.html" class="learn-more">Learn More</a>
+      </div>
+      <div class="service-category">
+        <img src="photo/cybersecurity.png" alt="Cybersecurity">
+        <h2>Cybersecurity</h2>
+        <p>Protect your business from cyber threats with our advanced security solutions.</p>
+        <a href="cybersecurity.html" class="learn-more">Learn More</a>
+      </div>
+    </section>
+
+    <section class="case-studies">
+      <h2>Case Studies</h2>
+      <div class="case-study">
+        <h3>Project: E-Commerce Platform</h3>
+        <p>We developed a scalable e-commerce platform for a retail client, resulting in a 50% increase in online sales.</p>
+        <a href="ecommerce-project.html">View Case Study</a>
+      </div>
+      <div class="case-study">
+        <h3>Project: AI-Powered Chatbot</h3>
+        <p>We built an AI chatbot for a healthcare provider, reducing customer service costs by 30%.</p>
+        <a href="chatbot-project.html">View Case Study</a>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Ready to Transform Your Business?</h2>
+      <p>Contact us today to discuss your project and get a free consultation.</p>
+      <a href="contact.html" class="cta-button">Get Started</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mr Khan Technology. All rights reserved.</p>
+  </footer>
+</body>
+</html>

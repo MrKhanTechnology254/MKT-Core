@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace | Make Money with Tech | Mr. Khan Technology</title>
+    <style>
+        :root {
+            --primary: #00adef;
+            --secondary: #222;
+            --accent: #ff6b00;
+            --success: #28a745;
+            --text-light: #fff;
+            --text-dark: #333;
+            --bg-light: #f8f9fa;
+            --bg-dark: #222;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            width: 80px;
+            height: auto;
+            margin-right: 15px;
+        }
+        
+        /* Navigation */
+        .nav-container {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .nav-links {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-bottom: 2px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            overflow-x: auto;
+            padding: 12px 0;
+        }
+        
+        .nav-links ul {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-links a[aria-current="page"] {
+            background: var(--accent);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Main Content */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('tech-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            background: #ff7b00;
+        }
+        
+        /* Money Making Section */
+        .money-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .money-section h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        .money-card {
+            display: flex;
+            align-items: center;
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .money-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .money-icon {
+            font-size: 2.5rem;
+            margin-right: 20px;
+            color: var(--accent);
+        }
+        
+        .money-content {
+            flex: 1;
+        }
+        
+        .money-content h3 {
+            margin-top: 0;
+            color: var(--secondary);
+        }
+        
+        .earn-badge {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .product-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-details {
+            padding: 20px;
+        }
+        
+        .product-details h3 {
+            margin-top: 0;
+            color: var(--secondary);
+        }
+        
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+        
+        .product-commission {
+            font-size: 0.9rem;
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        
+        .buy-btn {
+            flex: 1;
+            padding: 10px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+        
+        .buy-btn:hover {
+            background: #0095d9;
+        }
+        
+        .affiliate-btn {
+            flex: 1;
+            padding: 10px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .affiliate-btn:hover {
+            background: #ff7b00;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: var(--text-light);
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: left;
+            max-width: 1200px;
+            margin: 0 auto 30px;
+        }
+        
+        .footer-column h3 {
+            color: var(--primary);
+            margin-top: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-column li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-column a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .money-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .money-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="MR KHAN TECHNOLOGY Logo" class="logo" loading="lazy">
+            <div>
+                <h1>Mr. Khan Technology Marketplace</h1>
+                <p>Turn clicks into cash with our monetized tech solutions</p>
+            </div>
+        </div>
+        <div class="nav-container">
+            <nav class="nav-links" aria-label="Main navigation">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="careers.html">Earn With Us</a></li>
+                    <li><a href="marketplace.html" aria-current="page">Marketplace</a></li>
+                    <li><a href="forum.html">Community</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="affiliate.html" style="background: var(--accent);">Affiliate Program</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Make Money with Every Click</h1>
+            <p>Discover our revenue-generating tech products and services that pay you for sharing and engaging</p>
+            <a href="#money-making" class="cta-button">Start Earning Today →</a>
+        </section>
+
+        <!-- Money Making Section -->
+        <section id="money-making" class="money-section">
+            <h2><i class="fas fa-money-bill-wave"></i> 3 Ways to Monetize Right Now</h2>
+            
+            <div class="money-card">
+                <div class="money-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                <div class="money-content">
+                    <h3>Affiliate Links <span class="earn-badge">Earn 30% Commission</span></h3>
+                    <p>Share our products and earn commissions on every sale. Our high-converting links make earning passive income easy.</p>
+                    <a href="#" class="affiliate-btn">Get Affiliate Links</a>
+                </div>
+            </div>
+            
+            <div class="money-card">
+                <div class="money-icon">
+                    <i class="fas fa-ad"></i>
+                </div>
+                <div class="money-content">
+                    <h3>Ad Revenue Sharing <span class="earn-badge">Earn 50% Revenue</span></h3>
+                    <p>Embed our content on your site and share in the ad revenue. The more traffic you drive, the more you earn.</p>
+                    <a href="#" class="affiliate-btn">Join Ad Program</a>
+                </div>
+            </div>
+            
+            <div class="money-card">
+                <div class="money-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <div class="money-content">
+                    <h3>Premium Content Reselling <span class="earn-badge">Earn 40% Profit</span></h3>
+                    <p>Resell our premium tech guides, courses, and software with your own branding and pricing.</p>
+                    <a href="#" class="affiliate-btn">View Resell Options</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Digital Products -->
+        <section class="money-section">
+            <h2><i class="fas fa-shopping-bag"></i> High-Converting Digital Products</h2>
+            <p>These products have the highest conversion rates and affiliate payouts in our marketplace.</p>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge">Bestseller</div>
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="product-details">
+                        <h3>Tech Affiliate Mastery Course</h3>
+                        <p>Learn how to earn $5,000/month promoting tech products</p>
+                        <div class="product-price">KSH 2,500</div>
+                        <div class="product-commission">Earn KSH 750 per sale</div>
+                        <div class="action-buttons">
+                            <a href="#" class="buy-btn">Buy Now</a>
+                            <a href="#" class="affiliate-btn">Promote</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-badge">Hot Deal</div>
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="product-details">
+                        <h3>AI Content Generator Pro</h3>
+                        <p>Automatically create high-converting content for your offers</p>
+                        <div class="product-price">KSH 1,800/month</div>
+                        <div class="product-commission">Earn KSH 540 monthly</div>
+                        <div class="action-buttons">
+                            <a href="#" class="buy-btn">Subscribe</a>
+                            <a href="#" class="affiliate-btn">Promote</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="product-details">
+                        <h3>Click Maximizer Toolkit</h3>
+                        <p>Boost your CTR by 300% with our proven templates</p>
+                        <div class="product-price">KSH 3,200</div>
+                        <div class="product-commission">Earn KSH 960 per sale</div>
+                        <div class="action-buttons">
+                            <a href="#" class="buy-btn">Buy Now</a>
+                            <a href="#" class="affiliate-btn">Promote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="money-section">
+            <h2><i class="fas fa-hand-holding-usd"></i> Monetizable Services</h2>
+            <p>Earn commissions by referring clients to these high-demand services.</p>
+            
+            <div class="products-grid">
+                <!-- Service 1 -->
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="product-details">
+                        <h3>Website Monetization Audit</h3>
+                        <p>We analyze your site and show you how to double your revenue</p>
+                        <div class="product-price">KSH 8,000</div>
+                        <div class="product-commission">Earn KSH 2,400 per referral</div>
+                        <div class="action-buttons">
+                            <a href="#" class="buy-btn">Learn More</a>
+                            <a href="#" class="affiliate-btn">Refer Clients</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="product-details">
+                        <h3>Ad Revenue Optimization</h3>
+                        <p>Maximize your ad earnings with our placement strategies</p>
+                        <div class="product-price">KSH 12,000</div>
+                        <div class="product-commission">Earn KSH 3,600 per referral</div>
+                        <div class="action-buttons">
+                            <a href="#" class="buy-btn">Learn More</a>
+                            <a href="#" class="affiliate-btn">Refer Clients</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="product-details">
+                        <h3>Affiliate Funnel Builder</h3>
+                        <p>We create high-converting funnels for your offers</p>
+                        <div class="product-price">KSH 15,000</div>
+                        <div class="product-commission">Earn KSH 4,500 per referral</div>
+                        <div class="action-buttons">
+                            <a href="#" class="buy-btn">Learn More</a>
+                            <a href="#" class="affiliate-btn">Refer Clients</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <h2 style="text-align: center; color: white;">Success Stories</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto;">See how others are earning with our monetization systems</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "I made KSH 45,000 in my first month just by sharing Mr. Khan's affiliate links in my tech Facebook group. The products sell themselves!"
+                    </div>
+                    <div class="testimonial-author">- Sarah M., Nairobi</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The ad revenue sharing program added an extra KSH 18,000/month to my income with minimal effort. Highly recommended!"
+                    </div>
+                    <div class="testimonial-author">- James K., Mombasa</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Reselling the premium content allowed me to quit my day job. I now earn KSH 120,000/month running my own digital store."
+                    </div>
+                    <div class="testimonial-author">- David W., Kisumu</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Final CTA -->
+        	<!-- 1. Final CTA Section -->
+<section class="final-cta" style="background: linear-gradient(135deg, #00adef, #0066cc); padding: 60px 20px; text-align: center; color: white; border-radius: 10px; margin: 40px 0;">
+    <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Ready to Start Earning Today?</h2>
+    <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px;">Join 1,200+ members already making money with our proven system. Get instant access to all resources when you sign up now.</p>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        <a href="#" class="cta-button" style="background: #ff6b00; font-size: 1.2rem; padding: 15px 40px;">Start Free Trial</a>
+        <a href="#" class="cta-button" style="background: transparent; border: 2px solid white; font-size: 1.2rem; padding: 15px 40px;">See Pricing Plans</a>
+    </div>
+</section>
+
+<!-- 2. Earnings Calculator -->
+<section class="calculator" style="background: white; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin: 40px 0;">
+    <h2 style="text-align: center; color: #00adef; margin-bottom: 30px;">See How Much You Could Earn</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center;">
+        <div>
+            <label style="display: block; margin-bottom: 10px; font-weight: bold;">Monthly Visitors:</label>
+            <input type="range" min="1000" max="100000" value="5000" step="1000" style="width: 100%; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between;">
+                <span>1,000</span>
+                <span>100,000</span>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.2rem; margin-bottom: 10px;">Estimated Monthly Earnings:</div>
+            <div style="font-size: 2.5rem; font-weight: bold; color: #28a745;">KSH <span id="earnings-value">24,750</span></div>
+            <p style="font-size: 0.9rem; color: #666;">Based on average conversion rates</p>
+        </div>
+    </div>
+</section>
+
+<!-- 3. FAQ Section -->
+<section class="faq" style="margin: 40px 0;">
+    <h2 style="text-align: center; color: #00adef; margin-bottom: 30px;">Frequently Asked Questions</h2>
+    
+    <div class="faq-item" style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+        <h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+            How quickly can I start earning? 
+            <span style="font-size: 1.5rem;">+</span>
+        </h3>
+        <div class="faq-answer" style="display: none; padding-top: 10px;">
+            <p>Most affiliates see their first commission within 3-7 days of joining. Our top performers earned over KSH 15,000 in their first week by simply sharing their unique affiliate links.</p>
+        </div>
+    </div>
+    
+    <div class="faq-item" style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+        <h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+            What marketing materials do you provide? 
+            <span style="font-size: 1.5rem;">+</span>
+        </h3>
+        <div class="faq-answer" style="display: none; padding-top: 10px;">
+            <p>We provide ready-to-use banners, email swipe copies, social media posts, and even pre-made video ads. Everything is optimized for maximum conversions in the Kenyan market.</p>
+        </div>
+    </div>
+    
+    <div class="faq-item" style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+        <h3 style="margin-top: 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+            How and when do I get paid? 
+            <span style="font-size: 1.5rem;">+</span>
+        </h3>
+        <div class="faq-answer" style="display: none; padding-top: 10px;">
+            <p>We process payments monthly via M-Pesa or bank transfer. Minimum payout is KSH 1,000. Payments are sent by the 5th of each month for the previous month's earnings.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 4. Trust Badges -->
+<div class="trust-badges" style="text-align: center; margin: 40px 0; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+    <h3 style="margin-top: 0; color: #333;">Trusted By</h3>
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; align-items: center;">
+        <img src="safaricom-logo.png" alt="Safaricom" style="height: 40px; width: auto; filter: grayscale(100%) opacity(70%);">
+        <img src="kcb-logo.png" alt="KCB" style="height: 40px; width: auto; filter: grayscale(100%) opacity(70%);">
+        <img src="ict-authority-logo.png" alt="ICT Authority" style="height: 40px; width: auto; filter: grayscale(100%) opacity(70%);">
+        <div style="display: flex; align-items: center;">
+            <span style="font-size: 2rem; margin-right: 10px;">4.9/5</span>
+            <div>
+                <div style="color: gold; font-size: 1.2rem;">★★★★★</div>
+                <div style="font-size: 0.8rem;">from 1,200+ reviews</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 5. Limited-Time Offer -->
+<section class="limited-offer" style="background: #ff6b00; color: white; padding: 30px; border-radius: 10px; text-align: center; margin: 40px 0; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: rgba(255,255,255,0.2); border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -30px; left: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.2); border-radius: 50%;"></div>
+    
+    <h2 style="position: relative; z-index: 2; margin-top: 0;">🚀 Limited-Time Bonus!</h2>
+    <p style="position: relative; z-index: 2; max-width: 700px; margin: 0 auto 20px; font-size: 1.1rem;">
+        Sign up in the next <span style="font-weight: bold;" id="countdown">24:59:59</span> and get:
+    </p>
+    <ul style="position: relative; z-index: 2; text-align: left; max-width: 500px; margin: 0 auto 25px; padding-left: 20px;">
+        <li style="margin-bottom: 10px;">+ Free 30-minute monetization strategy session (worth KSH 3,500)</li>
+        <li style="margin-bottom: 10px;">+ Premium traffic toolkit (normally KSH 2,000/month)</li>
+        <li style="margin-bottom: 10px;">+ Your first 10 sales at 40% commission instead of 30%</li>
+    </ul>
+    <a href="#" class="cta-button" style="position: relative; z-index: 2; background: white; color: #ff6b00; font-size: 1.2rem; padding: 15px 40px;">Claim Bonus Now</a>
+</section>
+
+<script>
+    // Earnings Calculator Functionality
+    const earningsSlider = document.querySelector('.calculator input[type="range"]');
+    const earningsValue = document.getElementById('earnings-value');
+    
+    earningsSlider.addEventListener('input', function() {
+        const visitors = parseInt(this.value);
+        const earnings = Math.round(visitors * 0.05 * 495); // 5% conversion at KSH 495 avg commission
+        earningsValue.textContent = earnings.toLocaleString();
+    });
+
+    // FAQ Toggle Functionality
+    document.querySelectorAll('.faq-item h3').forEach(question => {
+        question.addEventListener('click', function() {
+            const answer = this.nextElementSibling;
+            const plusMinus = this.querySelector('span');
+            
+            if(answer.style.display === 'block') {
+                answer.style.display = 'none';
+                plusMinus.textContent = '+';
+            } else {
+                answer.style.display = 'block';
+                plusMinus.textContent = '-';
+            }
+        });
+    });
+
+    // Countdown Timer
+    function updateCountdown() {
+        const now = new Date();
+        const midnight = new Date();
+        midnight.setHours(24, 0, 0, 0);
+        
+        const diff = midnight - now;
+        
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        document.getElementById('countdown').textContent = 
+            `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+</script>
+        <section style="text-align: center; margin: 50px 0;">
+            <h2>Ready to Start Earning?</h2>
+            <p style="max-width: 600px; margin: 0 auto 25px;">Join our monetization program today and get access to high-converting products, marketing materials, and dedicated support.</p>
+            <a href="#" class="cta-button" style="font-size: 1.2rem; padding: 15px 40px;">Get Started Now →</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>Monetization</h3>
+                <ul>
+                    <li><a href="#">Affiliate Program</a></li>
+                    <li><a href="#">Ad Revenue Sharing</a></li>
+                    <li><a href="#">Content Reselling</a></li>
+                    <li><a href="#">Commission Rates</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Products</h3>
+                <ul>
+                    <li><a href="#">Digital Products</a></li>
+                    <li><a href="#">Online Courses</a></li>
+                    <li><a href="#">Software Tools</a></li>
+                    <li><a href="#">Templates</a></li>
+                    <li><a href="#">Bundles</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Monetization Audits</a></li>
+                    <li><a href="#">Ad Optimization</a></li>
+                    <li><a href="#">Funnel Building</a></li>
+                    <li><a href="#">Consulting</a></li>
+                    <li><a href="#">Training</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Affiliate Resources</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2025 Mr. Khan Technology. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+
+    <script>
+        // Track affiliate link clicks
+        document.querySelectorAll('.affiliate-btn, .buy-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // In a real implementation, this would track the click in your analytics
+                console.log('Tracking click on:', this.textContent);
+                
+                // For demo purposes, prevent actual navigation
+                e.preventDefault();
+                
+                // Show a mock success message
+                alert('Thank you for your interest! In a live system, this would redirect to the product/affiliate page.');
+            });
+        });
+        
+        // Animate elements when they come into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.money-card, .product-card, .testimonial-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animation
+        document.querySelectorAll('.money-card, .product-card, .testimonial-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+        
+        // Run on load and scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>

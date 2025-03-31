@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MR KHAN TECHNOLOGY - Computer Courses & Gadgets</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* === Global Styles === */
+    :root {
+      --primary: #00adef;
+      --primary-dark: #0088cc;
+      --dark: #121212;
+      --light: #f8f9fa;
+      --gray: #6c757d;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    
+    body {
+      background-color: white;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* === Button Styles === */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: rgba(0, 173, 239, 0.1);
+    }
+    
+    .btn-sm {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+    
+    /* === Hero Section === */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    /* === Course Categories === */
+    .section-title {
+      text-align: center;
+      margin: 60px 0 30px;
+    }
+    
+    .course-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
+    
+    .category-card {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .category-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .category-card i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .category-card h3 {
+      margin-bottom: 15px;
+    }
+    
+    .category-card a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    
+    /* === Featured Products === */
+    .featured-products {
+      padding: 60px 0;
+      background: #f8f9fa;
+    }
+    
+    .product-carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 20px;
+      scroll-snap-type: x mandatory;
+    }
+    
+    .product-card {
+      min-width: 250px;
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      scroll-snap-align: start;
+      text-align: center;
+    }
+    
+    .product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+    
+    .product-card h4 {
+      margin-bottom: 10px;
+    }
+    
+    .product-card p {
+      color: var(--primary);
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    .product-card del {
+      color: var(--gray);
+      font-weight: normal;
+    }
+    
+    /* === Bundle Offer === */
+    .bundle-offer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      margin: 40px 0;
+    }
+    
+    .bundle-offer h2 {
+      margin-bottom: 15px;
+    }
+    
+    .bundle-offer p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    
+    /* === Testimonials === */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 40px 20px;
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .testimonial-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+    
+    .testimonial-card span {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    /* === Footer CTA === */
+    .footer-cta {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    
+    .footer-cta h3 {
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+    }
+    
+    /* === Mobile Responsiveness === */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .course-categories {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Learn Tech Skills • Buy Affordable Gadgets</h1>
+      <p>From beginner computer classes to expert programming courses + quality ICT equipment</p>
+      <div class="cta-buttons">
+        <a href="/courses" class="btn btn-primary">Browse Courses</a>
+        <a href="/shop" class="btn btn-outline">Shop Gadgets</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Categories -->
+  <div class="section-title">
+    <h2>Start Your Learning Journey</h2>
+  </div>
+  
+  <div class="course-categories">
+    <div class="category-card beginner">
+      <i class="fas fa-laptop"></i>
+      <h3>Beginner Courses</h3>
+      <p>Computer Basics, Microsoft Office, Internet Skills</p>
+      <a href="/courses?level=beginner">Explore</a>
+    </div>
+    
+    <div class="category-card intermediate">
+      <i class="fas fa-code"></i>
+      <h3>Intermediate Courses</h3>
+      <p>Web Development, Graphic Design, Data Analysis</p>
+      <a href="/courses?level=intermediate">Explore</a>
+    </div>
+    
+    <div class="category-card advanced">
+      <i class="fas fa-lock"></i>
+      <h3>Advanced Courses</h3>
+      <p>Python Programming, Cybersecurity, AI Fundamentals</p>
+      <a href="/courses?level=advanced">Explore</a>
+    </div>
+  </div>
+
+  <!-- Featured Products -->
+  <section class="featured-products">
+    <div class="container">
+      <h2 class="section-title">Student-Favorite Gadgets</h2>
+      <div class="product-carousel">
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Budget Laptop">
+          <h4>HP Refurbished Laptop</h4>
+          <p>₹15,999 <del>₹18,999</del></p>
+          <a href="/product/hp-laptop" class="btn btn-primary btn-sm">Buy Now</a>
+        </div>
+        
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Wireless Mouse">
+          <h4>Wireless Mouse</h4>
+          <p>₹499 <del>₹699</del></p>
+          <a href="/product/wireless-mouse" class="btn btn-primary btn-sm">Buy Now</a>
+        </div>
+        
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Keyboard">
+          <h4>Mechanical Keyboard</h4>
+          <p>₹1,299 <del>₹1,599</del></p>
+          <a href="/product/mechanical-keyboard" class="btn btn-primary btn-sm">Buy Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bundle Offer -->
+  <section class="bundle-offer">
+    <div class="container">
+      <h2>Best Value Combo!</h2>
+      <p>Get <strong>Excel Course + Wireless Mouse</strong> for just ₹1,799 (Save ₹300)</p>
+      <a href="/bundle-excel-mouse" class="btn btn-outline">Grab Deal</a>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <div class="section-title">
+    <h2>What Our Students Say</h2>
+  </div>
+  
+  <div class="testimonials">
+    <div class="testimonial-card">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Happy Student">
+      <p>"The Excel course helped me get a data entry job within 2 weeks!"</p>
+      <span>- Rajesh, Student</span>
+    </div>
+    
+    <div class="testimonial-card">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Happy Student">
+      <p>"Affordable laptop with warranty - perfect for my coding classes."</p>
+      <span>- Priya, Web Developer</span>
+    </div>
+    
+    <div class="testimonial-card">
+      <img src=photo/repair.png" alt="Happy Student">
+      <p>"Python course content was worth every rupee. Highly recommended!"</p>
+      <span>- Amit, Freelancer</span>
+    </div>
+  </div>
+
+  <!-- Footer CTA -->
+  <section class="footer-cta">
+    <div class="container">
+      <h3>Ready to Start Learning or Upgrade Your Tech?</h3>
+      <a href="https://wa.me/25469965286?text=I'm%20interested%20in%20your%20courses/gadgets" class="btn btn-primary">Chat on WhatsApp</a>
+    </div>
+  </section>
+</body>
+</html>

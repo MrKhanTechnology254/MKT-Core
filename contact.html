@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Mr. Khan Technology</title>
+    <style>
+        :root {
+            --primary-color: #28a745;
+            --primary-hover: #218838;
+            --text-color: #333;
+            --light-gray: #f8f9fa;
+            --border-color: #ddd;
+            --container-max-width: 1200px;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-gray);
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .homebtn {
+
+position: relative;
+color: green;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+
+
+
+}
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+        
+        p.lead {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        .social-section {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 4px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+        
+        .social-links a i {
+            margin-right: 8px;
+        }
+        
+        .whatsapp { background-color: #25D366; }
+        .facebook { background-color: #1877F2; }
+        .twitter { background-color: #1DA1F2; }
+        .instagram { background-color: #E4405F; }
+        .linkedin { background-color: #0077B5; }
+        .telegram { background-color: #0088CC; }
+        .youtube { background-color: #FF0000; }
+        
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            .container {
+                padding: 3rem 2rem;
+            }
+            
+            form {
+                padding: 2.5rem;
+            }
+            
+            .form-row {
+                display: flex;
+                gap: 1.5rem;
+            }
+            
+            .form-group {
+                flex: 1;
+            }
+            
+            button {
+                width: auto;
+                min-width: 200px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .content-wrapper {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                align-items: center;
+            }
+            
+            .social-section {
+                text-align: left;
+                padding: 0;
+            }
+            
+            .social-links {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+        	<a href="Dashboard.html" class="homebtn"  >home</a>
+            <h2>Contact Us</h2>
+            <p class="lead">Have questions or need assistance? Fill out the form below or reach out via social media!</p>
+        </header>
+        
+        <div class="content-wrapper">
+            <form id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" name="name" id="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">Your Contact</label>
+                        <input type="tel" name="contact" id="contact" placeholder="254712345678" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" name="email" id="email" placeholder="your.email@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea name="message" id="message" placeholder="How can we help you?" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+            
+            <div class="social-section">
+                <h3>Connect with us:</h3>
+                <div class="social-links">
+                    <a href="https://wa.me/254794532163" class="whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100083152584279" class="facebook" target="_blank">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                    <a href="https://twitter.com/MrKhanTech" class="twitter" target="_blank">
+                        <i class="fab fa-x-twitter"></i> X
+                    </a>
+                    <a href="https://www.instagram.com/mr.khan_ke?igsh=bnUzN2N5bGxiYmtu" class="instagram" target="_blank">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.linkedin.com/in/mr-khan-61b2a8355" class="linkedin" target="_blank">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                    <a href="https://www.youtube.com/@mr.khanTechnology?sub_confirmation=1" class="youtube" target="_blank">
+                        <i class="fab fa-youtube"></i> YouTube
+                    </a>
+                    <a href="https://t.me/mrkhantechnology" class="telegram" target="_blank">
+                        <i class="fab fa-telegram"></i> Telegram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            let name = document.getElementById("name").value.trim();
+            let contact = document.getElementById("contact").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let message = document.getElementById("message").value.trim();
+
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            let contactPattern = /^[0-9]{10,15}$/;
+            
+            if (name === "" || contact === "" || email === "" || message === "") {
+                alert("All fields are required.");
+                return;
+            }
+            
+            if (!emailPattern.test(email)) {
+                alert("Enter a valid email address.");
+                return;
+            }
+            
+            if (!contactPattern.test(contact)) {
+                alert("Enter a valid phone number (10-15 digits).");
+                return;
+            }
+            
+            const formData = new FormData(this);
+            
+            // URL of your Google Apps Script Web App
+            const googleScriptURL = "https://script.google.com/macros/s/AKfycbwtiS_hoBGiJqwL5PzrIIM1fAuN6bPr91cWmY1gu-9BlCytXTbGORNlzxroXY6RqvGXbA/exec";
+
+            
+            fetch(googleScriptURL, {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert("Message sent successfully!");
+                document.getElementById("contactForm").reset();
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Error sending message.");
+            });
+        });
+    </script>
+</body>
+</html>
