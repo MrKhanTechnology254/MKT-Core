@@ -1,4 +1,3 @@
-# MKT-Cor
 # **Mr Khan Technology (MKT) - Official Repository**  
 🚀 **Empowering Innovation, Shaping the Future**  
 
