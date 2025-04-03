@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Courses - Dynamic Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        /* Course Cards */
+        .course-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+        
+        .beginner .card-header { background: linear-gradient(135deg, #3498db, #2ecc71); }
+        .intermediate .card-header { background: linear-gradient(135deg, #f39c12, #e74c3c); }
+        .advanced .card-header { background: linear-gradient(135deg, #9b59b6, #34495e); }
+        
+        .card-header i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .course-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .course-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .course-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .course-list li i {
+            margin-right: 10px;
+            color: #f39c12;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background: #1a252f;
+            transform: translateY(-2px);
+        }
+        
+        /* Registration Form */
+        .registration-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .registration-form {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .form-header h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .level-content {
+            display: none;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            margin-top: 20px;
+            border-left: 4px solid;
+        }
+        
+        .beginner-content {
+            border-left-color: #3498db;
+        }
+        
+        .intermediate-content {
+            border-left-color: #f39c12;
+        }
+        
+        .advanced-content {
+            border-left-color: #9b59b6;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .course-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .registration-form {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; margin: 30px 0; color: #2c3e50;">Tech Skill Courses</h1>
+        
+        <div class="course-categories">
+            <!-- Beginner Card -->
+            <div class="category-card beginner">
+                <div class="card-header">
+                    <i class="fas fa-seedling"></i>
+                    <h2>Beginner Courses</h2>
+                </div>
+                <div class="card-body">
+                    <p>Start your tech journey with essential digital skills</p>
+                    <ul class="course-list">
+                        <li><i class="fas fa-check-circle"></i> AI Tools Literacy (ChatGPT/Copilot)</li>
+                        <li><i class="fas fa-check-circle"></i> Google Workspace/Microsoft 365</li>
+                        <li><i class="fas fa-check-circle"></i> Basic Cybersecurity</li>
+                        <li><i class="fas fa-check-circle"></i> No-Code Website Builders</li>
+                    </ul>
+                    <button class="btn register-btn" data-level="beginner">Enroll Now</button>
+                </div>
+            </div>
+            
+            <!-- Intermediate Card -->
+            <div class="category-card intermediate">
+                <div class="card-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h2>Intermediate Courses</h2>
+                </div>
+                <div class="card-body">
+                    <p>Boost your career with in-demand skills</p>
+                    <ul class="course-list">
+                        <li><i class="fas fa-check-circle"></i> Data Analysis (Python/Power BI)</li>
+                        <li><i class="fas fa-check-circle"></i> Digital Marketing (SEO + Ads)</li>
+                        <li><i class="fas fa-check-circle"></i> Cloud Basics (AWS/Azure)</li>
+                        <li><i class="fas fa-check-circle"></i> AI Prompt Engineering</li>
+                    </ul>
+                    <button class="btn register-btn" data-level="intermediate">Enroll Now</button>
+                </div>
+            </div>
+            
+            <!-- Advanced Card -->
+            <div class="category-card advanced">
+                <div class="card-header">
+                    <i class="fas fa-rocket"></i>
+                    <h2>Advanced Courses</h2>
+                </div>
+                <div class="card-body">
+                    <p>Master high-income tech specializations</p>
+                    <ul class="course-list">
+                        <li><i class="fas fa-check-circle"></i> AI Engineering (LLMs/RAG)</li>
+                        <li><i class="fas fa-check-circle"></i> DevOps & Cloud Architecture</li>
+                        <li><i class="fas fa-check-circle"></i> Blockchain Development</li>
+                        <li><i class="fas fa-check-circle"></i> Cybersecurity Pentesting</li>
+                    </ul>
+                    <button class="btn register-btn" data-level="advanced">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="registration-modal" id="registrationModal">
+        <div class="registration-form">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <div class="form-header">
+                <h2>Course Registration</h2>
+                <p>Complete your enrollment in just 2 minutes</p>
+            </div>
+            
+            <form id="enrollmentForm">
+            	   <div class="form-group">
+                    <label for="course">Course</label>
+                    <input type="course" id="course">
+                </div>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone">
+                </div>
+                
+                <!-- Dynamic Level Content -->
+                <div id="beginnerContent" class="level-content beginner-content">
+                    <h3><i class="fas fa-seedling"></i> Beginner Course Details</h3>
+                    <p>You're enrolling in our <strong>Essential Digital Skills</strong> track:</p>
+                    <ul>
+                        <li>4 core modules with hands-on projects</li>
+                        <li>Digital certification upon completion</li>
+                        <li>Access to beginner community</li>
+                    </ul>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" required> 
+                            I confirm I'm new to tech (0-1 year experience)
+                        </label>
+                    </div>
+                </div>
+                
+                <div id="intermediateContent" class="level-content intermediate-content">
+                    <h3><i class="fas fa-chart-line"></i> Intermediate Course Details</h3>
+                    <p>You're enrolling in our <strong>Career Accelerator</strong> program:</p>
+                    <ul>
+                        <li>Specialized skill certification</li>
+                        <li>Portfolio project development</li>
+                        <li>Part Time job Opportunities </li>
+                    </ul>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" required> 
+                            I have basic tech knowledge (1+ years experience)
+                        </label>
+                    </div>
+                </div>
+                
+                <div id="advancedContent" class="level-content advanced-content">
+                    <h3><i class="fas fa-rocket"></i> Advanced Course Details</h3>
+                    <p>You're enrolling in our <strong>Expert Track</strong> program:</p>
+                    <ul>
+                        <li>Mentorship from industry experts</li>
+                        <li>Capstone project with real clients</li>
+                        <li>Verified LinkedIn certification</li>
+                    </ul>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" required> 
+                            I have professional experience in this field
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">Complete Enrollment</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('registrationModal');
+        const closeBtn = document.getElementById('closeModal');
+        const enrollBtns = document.querySelectorAll('.register-btn');
+        
+        // Open modal with level-specific content
+        enrollBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const level = this.getAttribute('data-level');
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                
+                // Hide all level content first
+                document.querySelectorAll('.level-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                
+                // Show selected level content
+                document.getElementById(`${level}Content`).style.display = 'block';
+            });
+        });
+        
+        // Close modal
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close when clicking outside modal
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Form submission
+        document.getElementById('enrollmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Enrollment submitted successfully! We will contact you shortly.');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            this.reset();
+        });
+    </script>
+</body>
+</html> 
